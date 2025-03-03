@@ -242,7 +242,7 @@ body {
            after:bg-neutral-800 after:transition-transform 
            after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] 
            hover:after:origin-bottom-left hover:after:scale-x-100 
-           dark:after:bg-white cursor-pointer;
+           dark:after:bg-white cursor-pointer
   }
   
   .bento-title {
