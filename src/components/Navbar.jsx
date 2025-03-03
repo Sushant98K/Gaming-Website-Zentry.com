@@ -6,16 +6,18 @@ import gsap from "gsap";
 
 const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
 
-const Navbar = () => {
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+const Navbar = ({ isAudioPlaying, onToggleAudio }) => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const [isIndicatorActive, setIsIndicatorActive] = useState(isAudioPlaying);
 
   const navContainerRef = useRef(null);
-  const audioElementRef = useRef(null);
-
   const { y: currentScrollY } = useWindowScroll();
+
+  // Sync indicator with audio state
+  useEffect(() => {
+    setIsIndicatorActive(isAudioPlaying);
+  }, [isAudioPlaying]);
 
   useEffect(() => {
     if (currentScrollY === 0) {
@@ -30,28 +32,18 @@ const Navbar = () => {
     }
     setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);
-    
-    useEffect(() => {
-        gsap.to(navContainerRef.current, {
-            Y: isNavVisible ? 0 : -100,
-            opacity: isNavVisible ? 1 : 0,
-            duration: 0.1,
-        })
-    }, [isNavVisible]);
-
-  const toggleAudioIndicator = () => {
-    setIsAudioPlaying((prev) => !prev);
-
-    setIsIndicatorActive((prev) => !prev);
-  };
 
   useEffect(() => {
-    if (isAudioPlaying) {
-      audioElementRef.current.play();
-    } else {
-      audioElementRef.current.pause();
-    }
-  }, [isAudioPlaying]);
+    gsap.to(navContainerRef.current, {
+      y: isNavVisible ? 0 : -100,
+      opacity: isNavVisible ? 1 : 0,
+      duration: 0.1,
+    });
+  }, [isNavVisible]);
+
+  const toggleAudioIndicator = () => {
+    onToggleAudio();
+  };
 
   return (
     <div
@@ -86,12 +78,6 @@ const Navbar = () => {
               className="ml-10 flex items-center space-x-0.5"
               onClick={toggleAudioIndicator}
             >
-              <audio
-                ref={audioElementRef}
-                className="hidden"
-                src="/audio/loop.mp3"
-                loop
-              />
               {[1, 2, 3, 4].map((bar) => (
                 <div
                   key={bar}
