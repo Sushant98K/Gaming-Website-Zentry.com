@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+import AnimatedTitle from "./AnimatedTitle";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,7 +18,7 @@ const About = () => {
                 pinSpacing: true,
             }
         })
-        clipAnimation.to(".mask-clip-polly", {
+        clipAnimation.to(".mask-clip-path", {
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           width: "100vw",
           height: "100vh",
@@ -28,12 +29,12 @@ const About = () => {
   return (
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
-        <h2 className="font-general text-sm uppercase md:text-[10px]">
+        <h2 className="font-general text-sm uppercase md:text-[13px]">
           Welcome to Zentry
         </h2>
-        <div className="mt-5 font-zentry text-center special-font text-4xl uppercase leading-[0.8] md:text-[6rem]">
-          Disc<b>o</b>ver The World's <br /> largest shared <b>a</b>dventure,
-        </div>
+
+        <AnimatedTitle title="Disc<b>o</b>ver The World's <br /> largest shared <b>a</b>dventure," containerClass="mt-5 !text-black text-center" />
+
         <div className="about-subtext font-circular-web">
           <p>The Metagames begins-your life, now an epic MMORPG</p>
           <p>
@@ -43,7 +44,7 @@ const About = () => {
         </div>
       </div>
       <div className="h-dvh w-screen" id="clip">
-        <div className="mask-clip-polly about-image">
+        <div className="mask-clip-path about-image">
           <img
             src="img/about.webp"
             alt="background"
