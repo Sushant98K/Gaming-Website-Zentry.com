@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Features from "./components/Features";
 
 function App() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
@@ -47,6 +48,7 @@ function App() {
       />
       <Hero />
       <About />
+      <Features />
     </main>
   );
 }
