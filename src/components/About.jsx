@@ -35,7 +35,7 @@ const About = () => {
 
         <AnimatedTitle title="Disc<b>o</b>ver The World's <br /> largest shared <b>a</b>dventure," containerClass="mt-5 !text-black text-center" />
 
-        <div className="about-subtext font-circular-web">
+        <div className="about-subtext font-circular-web opacity-50">
           <p>The Metagames begins-your life, now an epic MMORPG</p>
           <p>
             Zentry is the unified play layer that bridges players, agentic AI,

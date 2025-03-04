@@ -23,12 +23,15 @@ const Navbar = ({ isAudioPlaying, onToggleAudio }) => {
     if (currentScrollY === 0) {
       setIsNavVisible(true);
       navContainerRef.current.classList.remove("floating-nav");
+      navContainerRef.current.classList.remove("bg-alt-black");
     } else if (currentScrollY > lastScrollY) {
       setIsNavVisible(false);
       navContainerRef.current.classList.add("floating-nav");
+      navContainerRef.current.classList.add("bg-alt-black");
     } else if (currentScrollY < lastScrollY) {
       setIsNavVisible(true);
       navContainerRef.current.classList.add("floating-nav");
+      navContainerRef.current.classList.add("bg-alt-black");
     }
     setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);

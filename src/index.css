@@ -9,7 +9,7 @@ body {
 
 @layer base {
 
-    @font-face {
+  @font-face {
         font-family: 'zentry';
         src: url('/fonts/zentry-regular.woff2') format('woff2')
     }
@@ -50,6 +50,8 @@ body {
   --color-blue-200: #010101;
   --color-blue-300: #4fb7dd;
 
+  --color-alt-black: #0F0D0D;
+
   --color-violet-300: #5724ff;
 
   --color-yellow-100: #8e983f;
@@ -57,6 +59,7 @@ body {
 }
 
 @layer utilities {
+  
   .font-zentry {
     font-family: var(--font-zentry);
   }
@@ -72,6 +75,10 @@ body {
   .font-robert-regular {
     font-family: var(--font-robert-regular);
   }
+  .bg-alt-black {
+    background-color: var(--color-alt-black);
+  }
+
   .bg-blue-50 {
     background-color: var(--color-blue-50);
   }
@@ -130,7 +137,7 @@ body {
   }
 
   .floating-nav {
-    @apply bg-black rounded-lg border;
+    @apply rounded-lg border;
   }
 
   .absolute-center {
