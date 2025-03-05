@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import AnimatedTitle from "./AnimatedTitle";
+import RoundedCorners from "./RoundedCorners";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +51,8 @@ const About = () => {
             alt="background"
             className="absolute left-0 top-0 size-full object-cover"
           />
+          {/* Rounded Corners */}
+          <RoundedCorners />
         </div>
       </div>
     </div>

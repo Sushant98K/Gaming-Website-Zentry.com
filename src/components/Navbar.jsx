@@ -60,7 +60,7 @@ const Navbar = ({ isAudioPlaying, onToggleAudio }) => {
             <Button
               id="product-button"
               title="Products"
-              rightIcon={<TiLocationArrow />}
+              rightIcon={<TiLocationArrow size={20}/>}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
           </div>
